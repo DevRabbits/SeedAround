@@ -64,40 +64,47 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">S'enregistrer</h4>
+						<p><strong>Les champs marqués d'un <span class="red">*</span><strong> sont obligatoires.</p>
 					</div>
 					<div class="modal-body">
 						<form role="form" method="POST" action="./function/user_sign.php">
 							<div class="form-group">
-								<label for="mail">* Adresse mail :</label>
+								<label for="mail"><span class="red">*</span> Adresse mail :</label>
 								<input type="mail" name="mail" class="form-control" id="mail">
 							</div>
 							<div class="form-group">
-								<label for="lastname">* Nom :</label>
+								<label for="lastname"><span class="red">*</span> Nom :</label>
 								<input type="text" name="lastname" class="form-control" id="lastname">
 							</div>
 							<div class="form-group">
-								<label for="firstname">* Prénom :</label>
+								<label for="firstname"><span class="red">*</span> Prénom :</label>
 								<input type="text" name="firstname" class="form-control" id="firstname">
 							</div>
 							<div class="form-group">
-								<label for="password">* Mot de passe :</label>
+								<label for="password"><span class="red">*</span> Mot de passe :</label>
 								<input type="password" name="password" class="form-control" id="password">
 							</div>
 							<div class="form-group">
-								<label for="passwordval">* Confirmation :</label>
+								<label for="passwordval"><span class="red">*</span> Confirmation :</label>
 								<input type="password" name="passwordval" class="form-control" id="passwordval">
 							</div>
 							<div class="form-group">
 								<label for="propic">Ajouter une photo de profil :</label>
-								<input type="text" name="propic" class="form-control" id="propic">
+								<div class="input-group">
+								  <span class="input-group-addon" id="basic-addon1">URL</span>
+									<input type="text" name="propic" class="form-control" id="propic">
+								</div>
 							</div>
 							<div class="form-group">
-								<label for="activity">* Secteur d'activité :</label>
+								<label for="activity"><span class="red">*</span> Secteur d'activité :</label>
 								<input type="text" name="activity" class="form-control" id="activity">
 							</div>
 							<div class="form-group">
 								<label for="activitypic">Ajouter une photo annexes :</label>
-								<input type="text" name="activitypic" class="form-control" id="activitypic">
+								<div class="input-group">
+								  <span class="input-group-addon" id="basic-addon1">URL</span>
+									<input type="text" name="activitypic" class="form-control" id="activitypic">
+								</div>
 							</div>
 							<div class="form-group">
 								<label for="resume">A propos de vous :</label>
@@ -120,11 +127,17 @@
 						<form role="form" method="POST" action="./function/user_connect.php">
 							<div class="form-group">
 								<label for="mail">Mail de l'utilisateur :</label>
-								<input type="text" name="mail" class="form-control" id="mail">
+								<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-globe"></span></span>
+									<input type="text" name="mail" class="form-control" id="mail">
+								</div>
 							</div>
 							<div class="form-group">
 								<label for="password">Mot de passe :</label>
-								<input type="password" name="password" class="form-control" id="password">
+								<div class="input-group">
+							  	<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" name="password" class="form-control" id="password">
+								</div>
 							</div>
 							<div class="checkbox">
 							  <label><input type="checkbox"> Se souvenir de moi</label>

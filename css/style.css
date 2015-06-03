@@ -1,0 +1,11 @@
+.red
+{
+	color:#FA5858;
+}
+
+.showmap *
+{
+	text-align:center;
+	margin:auto;
+	max-width:90%;
+}
