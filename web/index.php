@@ -33,19 +33,19 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Accueil</a></li>
-						<li><a href="#">Map interactive</a></li>
-						<li><a href="#">Autour de vous</a></li> 
+						<li class="active"><a href="./index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
+						<li><a href="./map.php"><span class="glyphicon glyphicon-cloud"></span> Map interactive</a></li>
+						<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li> 
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<?php if (isset($_SESSION['logged']) && $_SESSION['logged'] == true): ?>
 						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['mail'];?><span class="caret"></span></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> <?php echo $_SESSION['mail'];?><span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Mon Profil</a></li>
-								<li><a href="#">Mes Statistiques</a></li>
-								<li><a href="#">Paramètres</a></li> 
-								<li><a href="#">Messagerie</a></li> 
+								<li><a href="./user_profil.php"><span class="glyphicon glyphicon-user"></span> Mon Profil</a></li>
+								<li><a href="./user_stats.php"><span class="glyphicon glyphicon-signal"></span> Mes Statistiques</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-cog"> Paramètres</a></li> 
+								<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messagerie</a></li> 
 								<li><a href="./function/user_disconnect.php"><span class="glyphicon glyphicon-off"></span> Se déconnecter</a></li>
 							</ul>
 						</li>
