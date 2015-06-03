@@ -9,3 +9,69 @@
 	margin:auto;
 	max-width:90%;
 }
+
+.showmap
+{
+	height:600px;
+	padding-top:50px;
+	margin-top:100px;
+	background-color:#FFFFFF;
+}
+
+.img_background
+{
+	height:100%;
+	width:100%;
+	position:fixed;
+	top:0%;
+	left:0%;
+	z-index:-1;
+}
+
+.ui_header
+{
+	margin-top:100px;
+	height:100px;
+	background-color:#FFFFFF
+}
+
+.ui_mainimg
+{
+	height:350px;
+}
+
+.ui_mainimg img
+{
+	height:100%;
+	width:100%;
+	left:0%;
+	position:absolute;
+}
+
+.ui_otherimg
+{
+	margin-top:50px;
+	height:300px;
+}
+
+.ui_resume
+{
+	margin-top:50px;
+	height:300px;
+	text-align:center;
+	background-color:#FFFFFF;
+}
+
+.ui_otherimg table
+{
+	height:100%;
+	width:100%;
+}
+
+.ui_otherimg td
+{
+	height:40%;
+	width:40%;
+	background-color:#000000;
+	border:solid #FFFFFF 5px;
+}

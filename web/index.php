@@ -22,6 +22,7 @@
 			}
 		?>
 		<?php session_start(); ?>
+		<img src="../img/back.jpeg" class="img_background">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">

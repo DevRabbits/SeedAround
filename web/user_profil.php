@@ -21,6 +21,7 @@
 				die('Erreur : ' . $e->getMessage());
 			}
 		?>
+		<img src="../img/back.jpeg" class="img_background">
 		<?php session_start(); ?>
 		<?php if (isset($_SESSION['logged']) && $_SESSION['logged'] == true): ?>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -57,5 +58,24 @@
 		<?php else: ?>
 			<?php header("Location: ./index.php");?>
 		<?php endif; ?>
+		<div class="ui_header col-md-8 col-md-offset-2">
+		</div>
+		<div class="ui_mainimg col-md-8 col-md-offset-2">
+			<img src="../img/other.jpg">
+		</div>
+		<div class="ui_otherimg col-md-3 col-md-offset-2">
+			<table>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div class="ui_resume col-md-4 col-md-offset-1">
+		</div>
 	</body>
 </html>
