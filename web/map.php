@@ -29,7 +29,7 @@ $map->setZoomLevel (11);
 
 <body onload="onLoad();">
 <?php $map->printMap(); ?>
-$map->addMarkerIcon( "<lien vers l'image du pointeur>", "<lien vers l'image de l'ombre du pointeur>", <décalage sur X de limage>, <décalage sur Y de limage>, <décalage sur X de la bulle dinformations>, <décalage sur Y de la bulle dinformations>);
+
 </body>
 
 </html>
