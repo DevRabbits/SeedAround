@@ -9,7 +9,8 @@
 		<script type="text/javascript" src="../script/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../script/script.js"></script>
 		<meta charset="utf-8">
-		<title>SeedArround</title>
+		<link rel="icon" type="image/png" href="../img/favicon.png"/>
+		<title>SeedArround - Accueil</title>
 	</head>
 	<body>
 		<?php
