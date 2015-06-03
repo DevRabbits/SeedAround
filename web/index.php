@@ -114,13 +114,23 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Modal Header</h4>
+						<h4 class="modal-title">Se connecter</h4>
 					</div>
 					<div class="modal-body">
-						<p>Some text in the modal.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<form role="form" method="POST" action="./function/user_connect.php">
+							<div class="form-group">
+								<label for="mail">Mail de l'utilisateur :</label>
+								<input type="text" name="mail" class="form-control" id="mail">
+							</div>
+							<div class="form-group">
+								<label for="password">Mot de passe :</label>
+								<input type="password" name="password" class="form-control" id="password">
+							</div>
+							<div class="checkbox">
+							  <label><input type="checkbox"> Se souvenir de moi</label>
+							</div>
+							<button type="submit" class="btn btn-default">Se connecter</button>
+						</form>
 					</div>
 				</div>
 			</div>
