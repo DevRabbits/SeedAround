@@ -9,26 +9,32 @@ $map = new GoogleMapAPI('map');
 $map->setAPIKey('AIzaSyCp6TXe102Zh_U9cZFUSbctFUIOsg24L9E');
 
 //(4) On ajoute les caractéristiques que l'on désire à notre carte.
-$map->setWidth("800px");
-$map->setHeight("500px");
+$map->setWidth("1400");
+$map->setHeight("850");
 $map->setCenterCoords ('1.0143050000000358', '48.471285');
-$map->setZoomLevel (11);
-
+$map->setZoomLevel (14.999);
+$map->setMapType('hybrid');
+$map->setInfoWindowTrigger('mouseover');
+$map->disableDirections();
+$map->disableZoomEncompass();
+$map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 
 //(5) On applique la base XHTML avec les fonctions à appliquer ainsi que le onload du body.
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<!DOCTYPE html>
+<html xmlns="" xml:lang="fr" >
 
 <head>
-    <title>Ma première carte Google Maps</title>
+    <meta charset="utf-8">
+    <title>SeedAroundMap</title>
     <?php $map->printHeaderJS(); ?>
     <?php $map->printMapJS(); ?>
 </head>
 
 <body onload="onLoad();">
 <?php $map->printMap(); ?>
+<?php  ?>
 
 </body>
 
