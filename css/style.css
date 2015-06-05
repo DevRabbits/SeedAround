@@ -75,3 +75,39 @@
 	background-color:#000000;
 	border:solid #FFFFFF 5px;
 }
+
+.caroudiv
+{
+	height:500px;
+	margin-top:100px;
+}
+
+.caroudiv #myCarousel img
+{
+		min-height:500px;
+		max-height:500px;
+		min-width:100%;
+		max-width:100%;
+}
+
+.main1
+{
+	height:500px;
+	margin-top:100px;
+	background-color:#FFFFFF;
+}
+
+.main2
+{
+	height:800px;
+	margin-top:10px;
+	background-color:#FFFFFF;
+}
+
+.seedfoot
+{
+	height:200px;
+	margin-top:100px;
+	background-color:#101010;
+	opacity:0.8;
+}
