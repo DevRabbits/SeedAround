@@ -1,25 +1,7 @@
 <?php
 //(1) On inclut la classe de Google Maps pour générer ensuite la carte.
-require('./class/GoogleMapAPI.class.php');
+require('./class/GoogleMapAPIv3.class.php');
 
-//(2) On crée une nouvelle carte; Ici, notre carte sera $map.
-$map = new GoogleMapAPI('map');
-
-//(3) On ajoute la clef de Google Maps.
-$map->setAPIKey('AIzaSyCp6TXe102Zh_U9cZFUSbctFUIOsg24L9E');
-
-//(4) On ajoute les caractéristiques que l'on désire à notre carte.
-$map->setWidth("1200");
-$map->setHeight("500");
-$map->setCenterCoords ('1.0143050000000358', '48.471285');
-$map->setZoomLevel (14.999);
-$map->setMapType('hybrid');
-$map->setInfoWindowTrigger('mouseover');
-$map->disableDirections();
-$map->disableZoomEncompass();
-$map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
-
-//(5) On applique la base XHTML avec les fonctions à appliquer ainsi que le onload du body.
 ?>
 <!DOCTYPE html>
 <html xmlns="" xml:lang="fr" >
@@ -35,10 +17,10 @@ $map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 		<link rel="icon" type="image/png" href="../img/favicon.png" />
 		<title>SeedArround - Map interactive</title>
 	</head>
-	<body onload="onLoad();">
+	<body>
 		<?php
 			try {
-				$bdd = new PDO('mysql:host=localhost;dbname=seedaround', 'root', 'weed1990');
+				$bdd = new PDO('mysql:host=localhost;dbname=seedaround', 'root', 'Rabbit');
 			}
 			catch (Exception $e) {
 				die('Erreur : ' . $e->getMessage());
@@ -52,7 +34,7 @@ $map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				  	<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="#">SeedAround</a>
 				</div>
@@ -60,7 +42,7 @@ $map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 					<ul class="nav navbar-nav">
 						<li><a href="./index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
 						<li class="active"><a href="./map.php"><span class="glyphicon glyphicon-cloud"></span> Map interactive</a></li>
-						<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li> 
+						<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<?php if (isset($_SESSION['logged']) && $_SESSION['logged'] == true): ?>
@@ -69,8 +51,8 @@ $map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 							<ul class="dropdown-menu">
 								<li><a href="./user_profil.php"><span class="glyphicon glyphicon-user"></span> Mon Profil</a></li>
 								<li><a href="./user_stats.php"><span class="glyphicon glyphicon-signal"></span> Mes Statistiques</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-cog"> Paramètres</a></li> 
-								<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messagerie</a></li> 
+								<li><a href="#"><span class="glyphicon glyphicon-cog"> Paramètres</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messagerie</a></li>
 								<li><a href="./function/user_disconnect.php"><span class="glyphicon glyphicon-off"></span> Se déconnecter</a></li>
 							</ul>
 						</li>
@@ -78,15 +60,38 @@ $map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 						<li><a href="#" data-toggle="modal" data-target="#signModal"><span class="glyphicon glyphicon-user"></span> S'enregistrer</a></li>
 						<li><a href="#" data-toggle="modal" data-target="#connectModal"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
 						<?php endif; ?>
-						
+
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div class="col-md-10 col-md-offset-1 showmap">
-			<?php $map->printHeaderJS(); ?>
-			<?php $map->printMapJS(); ?>
-			<?php $map->printMap(); ?>
+            <?php
+            $map = new GoogleMapAPI();
+            $map->setDivId('testmap');
+            $map->setDirectionDivId('cat1');
+            $adress = 'France, La loupe';
+            $map->geocoding($adress);
+
+            $map->setCenterLatLng($map->geocoding($adress)[2], $map->geocoding($adress)[3]);
+            $map->setEnableWindowZoom(FALSE);
+            $map->setEnableAutomaticCenterZoom(FALSE);
+            $map->setDisplayDirectionFields(false);
+            // $map->setClusterer(true);
+            $map->setSize('100%','99%');
+            $map->setZoom(14);
+            $map->setLang('fr');
+            $map->setDefaultHideMarker(false);
+            $map->setMapType('HYBRID');
+            //$map->addDirection('nantes','paris');
+            $coordtab = array();
+            $coordtab []= array(48.471, 0.996399, '','<strong>test<br>test<br>test<br>tesd</strong>');
+            $map->setIconSize(50,50);
+            $map->addArrayMarkerByCoords($coordtab,'cat1','../img/wheat.png');
+
+            $map->generate();
+            echo $map->getGoogleMap();
+            ?>
 		</div>
 		<div id="signModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
