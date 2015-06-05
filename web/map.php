@@ -38,7 +38,7 @@ $map->addMarkerByCoords( '1.0143050000000358', '48.471285', "Wheat");
 	<body onload="onLoad();">
 		<?php
 			try {
-				$bdd = new PDO('mysql:host=localhost;dbname=seedaround', 'root', 'weed1990');
+				$bdd = new PDO('mysql:host=localhost;dbname=seedaround', 'root', 'Rabbit');
 			}
 			catch (Exception $e) {
 				die('Erreur : ' . $e->getMessage());
