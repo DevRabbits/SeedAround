@@ -83,12 +83,31 @@ require('./class/GoogleMapAPIv3.class.php');
             $map->setLang('fr');
             $map->setDefaultHideMarker(false);
             $map->setMapType('HYBRID');
-            //$map->addDirection('nantes','paris');
-            $coordtab = array();
-            $coordtab []= array(48.471, 0.996399, '','<strong>test<br>test<br>test<br>tesd</strong>');
             $map->setIconSize(50,50);
-            $map->addArrayMarkerByCoords($coordtab,'cat1','../img/wheat.png');
+            //$map->addDirection('nantes','paris');
 
+            /************************ TABLEAU COORDONNEES CHAMPS DE BLE ******************/
+
+            $wheatCoords = array();
+            $wheatCoords []= array([48.471, 0.996399, '','<strong>test<br>test<br>test<br>tesd</strong>'],
+                                [48.475, 0.996399, '', '<strong>test<br>test<br>test<br>tesd</strong>']);
+
+            /********************************** FIN **************************************/
+
+            $map->addArrayMarkerByCoords($wheatCoords[0],'wheat','../img/wheat.png');
+
+            /*********************** TABLEAU COORDONNEES CHAMPS DE COLZA *****************/
+
+            $colzaCoords = array();
+            $colzaCoords []= array([48.470, 0.99398, '','<strong>test<br>test<br>test<br>tesd</strong>'],
+                [48.465, 0.996399, '', '<strong>test<br>test<br>test<br>tesd</strong>']);
+
+            /********************************* FIN **************************************/
+
+            $map->addArrayMarkerByCoords($colzaCoords[0],'colza','../img/rapeflower.png');
+
+            /*echo '<pre>';
+            var_dump($wheatCoords[0]);die;*/
             $map->generate();
             echo $map->getGoogleMap();
             ?>
