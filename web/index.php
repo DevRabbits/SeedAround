@@ -37,8 +37,14 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="./index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
 						<li><a href="./map.php"><span class="glyphicon glyphicon-cloud"></span> Map interactive</a></li>
-						<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li> 
+						<!--<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li>-->
 					</ul>
+					<form class="navbar-form navbar-left" role="search" method="POST" action="./function/user_search.php">
+					  <div class="form-group">
+							<input type="text" class="form-control" placeholder="Rechercher un Agriculteur">
+						</div>
+						<button type="submit" class="btn btn-default">Rechercher</button>
+					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<?php if (isset($_SESSION['logged']) && $_SESSION['logged'] == true): ?>
 						<li class="dropdown">
@@ -59,8 +65,8 @@
 				</div>
 			</div>
 		</nav>
-		<div class="caroudiv col-md-7 col-md-offset-1">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div class="caroudiv col-md-10 col-md-offset-1">
+			<div style="width:100%;position:absolute;left:0%;" id="myCarousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -68,9 +74,17 @@
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
 						<img src="../img/slide1.jpg" alt="slide1">
+						<div class="carousel-caption">
+						  <h3>Votre interface personnalisée !</h3>
+							<p>Découvrez une nouvelle façoon de présenter et gérer votre production.</p>
+						</div>
 					</div>
 					<div class="item">
 						<img src="../img/slide2.jpg" alt="slide2">
+						<div class="carousel-caption">
+						  <h3>Un site pour tous !</h3>
+							<p>Partagez vos connaissances avec la communautée.</p>
+						</div>
 					</div>
 				</div>
 				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -83,9 +97,22 @@
 				</a>
 			</div>
 		</div>
-		<div class="main1 col-md-3"></div>
-		<div class="main2 col-md-10 col-md-offset-1"></div>
+		<div class="main1 mainpres col-md-4 col-md-offset-1">
+			<img src="../img/stat.jpg">
+		</div>
+		<div class="main2 col-md-6"></div>
+		<div class="main3 col-md-10 col-md-offset-1"></div>
+		<div class="main4 col-md-6 col-md-offset-1"></div>
+		<div class="main5 mainpres col-md-4">
+			<img src="../img/share.jpg">
+		</div>
+		<div class="main3 col-md-10 col-md-offset-1"></div>
+		<div class="main6 col-md-10 col-md-offset-1">
+			<p><strong>Nos derniers inscrits :</strong></p>
+		</div>
 		<div class="seedfoot col-md-12"></div>
+		<div class="seedfoot1 col-md-12"></div>
+		<div class="seedfoot2 col-md-12"></div>
 		<div id="signModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -125,7 +152,18 @@
 							</div>
 							<div class="form-group">
 								<label for="activity"><span class="red">*</span> Secteur d'activité :</label>
-								<input type="text" name="activity" class="form-control" id="activity">
+								<div class="form-group">
+									<select class="form-control" name="activity" id="activity">
+										<option>Agroalimentaire</option>
+										<option>Aquaculture</option>
+										<option>Animal</option>
+										<option>Sylviculture</option>
+										<option>Viticulture</option>
+										<option>Arboriculture</option>
+										<option>Horticulture</option>
+										<option>Autre</option>
+									</select>
+								</div>
 							</div>
 							<div class="form-group">
 								<label for="activitypic">Ajouter une photo annexes :</label>

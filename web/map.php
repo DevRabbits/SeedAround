@@ -42,8 +42,14 @@ require('./class/GoogleMapAPIv3.class.php');
 					<ul class="nav navbar-nav">
 						<li><a href="./index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
 						<li class="active"><a href="./map.php"><span class="glyphicon glyphicon-cloud"></span> Map interactive</a></li>
-						<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li>
+						<!--<li><a href="./around.php"><span class="glyphicon glyphicon-leaf"></span> Autour de vous</a></li>-->
 					</ul>
+					<form class="navbar-form navbar-left" role="search" method="POST" action="./function/user_search.php">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Rechercher un Agriculteur">
+						</div>
+						<button type="submit" class="btn btn-default">Rechercher</button>
+					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<?php if (isset($_SESSION['logged']) && $_SESSION['logged'] == true): ?>
 						<li class="dropdown">
@@ -112,6 +118,9 @@ require('./class/GoogleMapAPIv3.class.php');
             echo $map->getGoogleMap();
             ?>
 		</div>
+		<div class="seedfoot col-md-12"></div>
+		<div class="seedfoot1 col-md-12"></div>
+		<div class="seedfoot2 col-md-12"></div>
 		<div id="signModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
